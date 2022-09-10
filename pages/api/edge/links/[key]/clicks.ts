@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import { redis } from "@/lib/redis";
+import { redis } from "@/lib/upstash";
 
 export const config = {
   runtime: "experimental-edge",
