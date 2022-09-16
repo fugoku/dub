@@ -4,7 +4,7 @@ import { withProjectAuth } from "@/lib/auth";
 
 export default withProjectAuth(
   async (req: NextApiRequest, res: NextApiResponse) => {
-    // POST /api/links – create a new link
+    // GET /api/projects/[slug]/domains/[domain]/links/random – get a random link
     if (req.method === "GET") {
       const { domain } = req.query as { domain: string };
       if (!domain) {
