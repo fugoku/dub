@@ -8,8 +8,8 @@ export default function AlertCircleFill({ className }: { className: string }) {
       strokeLinejoin="round"
       strokeWidth="1.5"
       viewBox="0 0 24 24"
-      width="14"
-      height="14"
+      width="24"
+      height="24"
       className={className}
     >
       <circle cx="12" cy="12" r="10" fill="currentColor" />
