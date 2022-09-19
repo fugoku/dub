@@ -17,6 +17,9 @@ export default async function handler(
       where: {
         slug,
       },
+      select: {
+        slug: true,
+      },
     });
     if (project) {
       return res.status(200).json(1);
