@@ -1,12 +1,6 @@
-import BlurImage from "@/components/shared/blur-image";
-import {
-  ExternalLink,
-  Facebook,
-  LinkedIn,
-  LoadingCircle,
-  Photo,
-  Twitter,
-} from "@/components/shared/icons";
+import BlurImage from "#/ui/blur-image";
+import { Facebook, LinkedIn, Photo, Twitter } from "@/components/shared/icons";
+import { LoadingCircle } from "#/ui/icons";
 import { LinkProps } from "@/lib/types";
 import { getDomainWithoutWWW } from "@/lib/utils";
 import { useMemo } from "react";
@@ -102,7 +96,7 @@ export default function Preview({
                 <div className="mb-1 h-4 w-full rounded-md bg-gray-100" />
               )}
               {description ? (
-                <p className="text-sm text-[#536471] line-clamp-2">
+                <p className="line-clamp-2 text-sm text-[#536471]">
                   {description}
                 </p>
               ) : (
@@ -149,7 +143,7 @@ export default function Preview({
                 <div className="mb-1 h-5 w-full rounded-md bg-gray-200" />
               )}
               {description ? (
-                <p className="text-sm text-[#606770] line-clamp-2">
+                <p className="line-clamp-2 text-sm text-[#606770]">
                   {description}
                 </p>
               ) : (
