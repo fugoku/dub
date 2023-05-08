@@ -7,7 +7,7 @@ import {
   paramsMetadata,
   getUrlWithoutUTMParams,
 } from "@/lib/utils";
-import Switch from "@/components/shared/switch";
+import Switch from "#/ui/switch";
 import { FADE_IN_ANIMATION_SETTINGS } from "@/lib/constants";
 
 export default function UTMSection({
