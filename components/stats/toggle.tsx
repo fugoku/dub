@@ -9,7 +9,7 @@ import {
 } from "@/components/shared/icons";
 import { ExpandingArrow } from "#/ui/icons";
 import { INTERVALS } from "@/lib/constants";
-import useScroll from "@/lib/hooks/use-scroll";
+import useScroll from "#/lib/hooks/use-scroll";
 import { linkConstructor } from "@/lib/utils";
 import IconMenu from "@/components/shared/icon-menu";
 import Popover from "@/components/shared/popover";
