@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import Button from "#/ui/button";
 import { Logo } from "#/ui/icons";
 import useSAML from "#/lib/swr/use-saml";
+import { SAML_PROVIDERS } from "#/lib/constants";
 
 function RemoveSAMLModal({
   showRemoveSAMLModal,
@@ -22,7 +23,7 @@ function RemoveSAMLModal({
 }) {
   const [removing, setRemoving] = useState(false);
   const { slug, logo } = useProject();
-  const { saml, mutate } = useSAML();
+  const { saml, provider, mutate } = useSAML();
 
   return (
     <Modal
@@ -50,16 +51,16 @@ function RemoveSAMLModal({
 
       <div className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 text-left sm:px-16">
         <div className="flex items-center space-x-3 rounded-md border border-gray-300 bg-white p-3">
-          <BlurImage
-            src="/_static/icons/okta.svg"
-            alt="Okta logo"
-            width={40}
-            height={40}
-            className="overflow-hidden rounded-full border border-gray-200"
+          <img
+            src={SAML_PROVIDERS.find((p) => p.name === provider)!.logo}
+            alt={provider + " logo"}
+            className="h-8 w-8"
           />
           <div className="flex flex-col">
-            <h3 className="text-sm font-medium">Okta SAML</h3>
-            <p className="text-xs text-gray-500">Okta SAML is configured</p>
+            <h3 className="text-sm font-medium">{provider} SAML</h3>
+            <p className="text-xs text-gray-500">
+              {provider} SAML is configured
+            </p>
           </div>
         </div>
         <Button
@@ -68,7 +69,7 @@ function RemoveSAMLModal({
           loading={removing}
           onClick={() => {
             setRemoving(true);
-            if (!saml?.connections[0]) {
+            if (!provider) {
               toast.error("No SAML connection found");
               return;
             }
