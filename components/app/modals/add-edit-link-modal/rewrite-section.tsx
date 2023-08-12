@@ -3,7 +3,7 @@ import { LinkProps } from "#/lib/types";
 import Switch from "#/ui/switch";
 import { HOME_DOMAIN } from "#/lib/constants";
 import { InfoTooltip, SimpleTooltipContent } from "#/ui/tooltip";
-import useProject from "#/lib/swr/use-project";
+import { useRouter } from "next/router";
 
 export default function RewriteSection({
   data,
@@ -12,7 +12,9 @@ export default function RewriteSection({
   data: LinkProps;
   setData: Dispatch<SetStateAction<LinkProps>>;
 }) {
-  const { plan } = useProject();
+  const router = useRouter();
+  const { slug } = router.query;
+
   const { rewrite } = data;
   const [enabled, setEnabled] = useState(rewrite);
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function RewriteSection({
               <SimpleTooltipContent
                 title="Mask your destination URL so your users only see the short link in the browser address bar."
                 cta="Learn more."
-                href={`${HOME_DOMAIN}/help/article/how-to-create-link#expiration-date`}
+                href={`${HOME_DOMAIN}/help/article/how-to-create-link#link-cloaking`}
               />
             }
           />
@@ -46,12 +48,18 @@ export default function RewriteSection({
         <Switch
           fn={() => setEnabled(!enabled)}
           checked={enabled}
-          {...(!plan || plan === "free"
-            ? {
-                disabledTooltip:
-                  "Link cloaking is only available on paid plans.",
-              }
-            : {})}
+          // link cloaking is only available on custom domains
+          {...(slug
+            ? {}
+            : {
+                disabledTooltip: (
+                  <SimpleTooltipContent
+                    title="You can only use link cloaking on a project with a custom domain."
+                    cta="Learn more."
+                    href={`${HOME_DOMAIN}/help/article/how-to-create-link#dubsh-links-vs-custom-domain-links`}
+                  />
+                ),
+              })}
         />
       </div>
     </div>
