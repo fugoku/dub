@@ -8,6 +8,7 @@ categories:
   - getting-started
 related:
   - okta-scim
+  - azure-saml
 excludeHeadingsFromSearch: true
 ---
 
@@ -19,7 +20,7 @@ For Dub Enterprise users, you can securely manage your team's access to Dub usin
 
 ## Step 1: Create SAML Integration
 
-In your Okta Dashboard, click on "Applications" in the sidebar.
+In your Okta Dashboard, click on **Applications** in the sidebar.
 
 <Image
   alt="Applications tab on the Okta Dashboard"
@@ -29,7 +30,7 @@ In your Okta Dashboard, click on "Applications" in the sidebar.
   hideCaption={true}
 />
 
-Then, click on "Create App Integration".
+Then, click on **Create App Integration**.
 
 <Image
   alt="Create App Integration button on the Okta Dashboard"
@@ -39,7 +40,7 @@ Then, click on "Create App Integration".
   hideCaption={true}
 />
 
-Select "SAML 2.0" as the sign on method, and click "Next".
+Select **SAML 2.0** as the sign on method, and click **Next**.
 
 <Image
   alt="Saml 2.0 option on the Okta Dashboard"
@@ -49,7 +50,7 @@ Select "SAML 2.0" as the sign on method, and click "Next".
   hideCaption={true}
 />
 
-In the "General Settings" page, enter "Dub" as the app name, and click "Next".
+In the **General Settings** page, enter "Dub" as the app name, and click **Next**.
 
 <Image
   alt="General Settings page on the Okta Dashboard"
@@ -59,7 +60,7 @@ In the "General Settings" page, enter "Dub" as the app name, and click "Next".
   hideCaption={true}
 />
 
-Copy the following values and paste them into the "SAML Settings" > "General" section:
+Copy the following values and paste them into the **SAML Settings** > **General** section:
 
 <CopyBox
   title="Single sign-on URL"
@@ -78,7 +79,7 @@ Copy the following values and paste them into the "SAML Settings" > "General" se
 
 ## Step 2: Configure Attribute Statements
 
-Right below the "General" section, you'll see the "Attribute Statements" section.
+Right below the **General** section, you'll see the **Attribute Statements** section.
 
 <Image
   alt="Attribute Statements section on the Okta Dashboard"
@@ -88,7 +89,7 @@ Right below the "General" section, you'll see the "Attribute Statements" section
   hideCaption={true}
 />
 
-Click on "Add Row" and add the following attribute statements:
+Click on **Add Row** and add the following attribute statements:
 
 | Name        | Value            |
 | ----------- | ---------------- |
@@ -101,7 +102,7 @@ Once that's done, click "Next".
 
 ## Step 3: Submit Feedback
 
-Under the "Feedback" section, select "I'm an Okta customer adding an internal app" and click "Finish".
+Under the **Feedback** section, select **I'm an Okta customer adding an internal app** and click **Finish**.
 
 <Image
   alt="Feedback section on the Okta Dashboard"
@@ -113,7 +114,7 @@ Under the "Feedback" section, select "I'm an Okta customer adding an internal ap
 
 ## Step 4: Copy the Metadata URL
 
-After you've submitted the feedback, you'll be redirected to the "Sign On" tab, which contains the metadata URL.
+After you've submitted the feedback, you'll be redirected to the **Sign On** tab, which contains the metadata URL.
 
 <Image
   alt="Sign On tab on the Okta Dashboard"
@@ -127,7 +128,7 @@ Copy the metadata URL and return to the Dub dashboard.
 
 ## Step 5: Configure SAML SSO on Dub
 
-In your project dashboard on Dub, click on the "Settings" tab in the menu bar at the top. Then, click on the "Security" tab in the sidebar.
+In your project dashboard on Dub, click on the **Settings** tab in the menu bar at the top. Then, click on the **Security** tab in the sidebar.
 
 <Image
   alt="SAML SSO section on the Dub Dashboard"
@@ -137,11 +138,11 @@ In your project dashboard on Dub, click on the "Settings" tab in the menu bar at
   hideCaption={true}
 />
 
-Under the "SAML Single Sign-On" section, click on "Configure". This will open up the SAML SSO modal:
+Under the **SAML Single Sign-On** section, click on **Configure**. This will open up the SAML SSO modal:
 
-1. Select "Okta" as the SAML provider.
+1. Select **Okta** as the SAML provider.
 2. Enter the Metadata URL value that you copied from Step 4.
-3. Click "Save changes".
+3. Click **Save changes**.
 
 <Image
   alt="SAML SSO Modal"
@@ -162,7 +163,7 @@ Under the "SAML Single Sign-On" section, click on "Configure". This will open up
 
 Once you've configured SAML SSO, you can start assigning users & groups to your project.
 
-Click on the "Assignments" tab, and click "Assign". You can choose to assign users individually, or assign them in bulk by group.
+Click on the **Assignments** tab, and click **Assign**. You can choose to assign users individually, or assign them in bulk by group.
 
 <Image
   alt="Assigning users in Okta"
@@ -172,7 +173,7 @@ Click on the "Assignments" tab, and click "Assign". You can choose to assign use
   hideCaption={true}
 />
 
-Select the users or groups you want to assign and click "Assign".
+Select the users or groups you want to assign and click **Assign**.
 
 <Image
   alt="Assigning users in Okta choose users"
@@ -182,7 +183,7 @@ Select the users or groups you want to assign and click "Assign".
   hideCaption={true}
 />
 
-In the next screen, scroll to the bottom and click "Save and Go Back".
+In the next screen, scroll to the bottom and click **Save and Go Back**.
 
 <Image
   alt="Saving Okta assignment"
