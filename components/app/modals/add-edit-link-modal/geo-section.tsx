@@ -3,7 +3,6 @@ import {
   SetStateAction,
   useContext,
   useEffect,
-  useMemo,
   useState,
 } from "react";
 import { type Link as LinkProps } from "@prisma/client";
@@ -21,7 +20,6 @@ import {
 } from "#/ui/tooltip";
 import useProject from "#/lib/swr/use-project";
 import { ModalContext } from "#/ui/modal-provider";
-import { cn } from "#/lib/utils";
 import { Trash } from "lucide-react";
 
 export default function GeoSection({
@@ -85,7 +83,13 @@ export default function GeoSection({
                   <TooltipContent
                     title="Geo targeting is only available on Dub's Pro plan. Upgrade to Pro to use this feature."
                     cta="Upgrade to Pro"
-                    onClick={() => setShowUpgradePlanModal(true)}
+                    {...(plan === "free"
+                      ? {
+                          onClick: () => setShowUpgradePlanModal(true),
+                        }
+                      : {
+                          href: `${HOME_DOMAIN}/pricing`,
+                        })}
                   />
                 ),
               }
@@ -127,9 +131,13 @@ const GeoSelector = ({
 }) => {
   const removeGeoSelector = (countryToRemove: string) => {
     setData((prev) => {
-      const updatedGeo = prev.geo || {};
-      delete updatedGeo[countryToRemove];
-      return { ...prev, geo: updatedGeo };
+      const { [countryToRemove]: _, ...rest } = prev.geo as {
+        [key: string]: string;
+      };
+      return {
+        ...prev,
+        geo: Object.keys(rest).length ? rest : null,
+      };
     });
   };
 
