@@ -1,7 +1,7 @@
 import { log } from "#/lib/utils";
 import { redis } from "#/lib/upstash";
 import { NextResponse } from "next/server";
-import { receiver } from "#/lib/cron/utils";
+import { receiver } from "#/lib/cron";
 import { importLinksFromShort } from "./utils";
 
 export async function POST(req: Request) {
